@@ -14,7 +14,7 @@ for iter = 1:num_iters
 	gradient = (alpha*(1/m))*partial_gradient';
 	
 	theta = theta - gradient;
-    J_history(iter) = computeCost(X, y, theta);
+    J_history(iter) = computeCost(X, y, theta);%Adding this comment to test comments
 
 end
 end
