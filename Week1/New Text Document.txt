@@ -1,9 +1,0 @@
-Linear Regression with One Variable
-
-Linear regression with one variable is also known as "univariate linear regression."
-
-Our hypothesis function has the general form:
-
-h?(x)=?0+?1x
-
-6384
