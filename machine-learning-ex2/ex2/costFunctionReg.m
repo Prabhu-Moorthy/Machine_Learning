@@ -17,6 +17,6 @@ reg = (lambda/(2*m))*(theta_reg'*theta_reg);
 J = -((1/m)*(fp+sp))+reg
 
 %So, now we have calculated the cost function J(theta) (J), next we need to calculate the partial derivative of J(theta) (J_Part)
-grad =(1/m)*(X'*(h-y));
+grad =(1/m)*(X'*(h-y)+lambda*theta_reg);
 
 end
