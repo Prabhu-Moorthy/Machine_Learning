@@ -1,27 +1,22 @@
 function [J, grad] = costFunctionReg(theta, X, y, lambda)
-%COSTFUNCTIONREG Compute cost and gradient for logistic regression with regularization
-%   J = COSTFUNCTIONREG(theta, X, y, lambda) computes the cost of using
-%   theta as the parameter for regularized logistic regression and the
-%   gradient of the cost w.r.t. to the parameters. 
-
-% Initialize some useful values
-m = length(y); % number of training examples
-
-% You need to return the following variables correctly 
+%Variable initilization
+m = length(y);
 J = 0;
 grad = zeros(size(theta));
+%Before calculating the cost function we need to compute the hypothesis function(h) using the sigmoid function that we computed earlier
+h = sigmoid(X*theta);
+theta_reg = [0;theta(2:end)];
 
-% ====================== YOUR CODE HERE ======================
-% Instructions: Compute the cost of a particular choice of theta.
-%               You should set J to the cost.
-%               Compute the partial derivatives and set grad to the partial
-%               derivatives of the cost w.r.t. each parameter in theta
+%First we will compute the un regularized cost function J(theta) in a vectorized way
+%For understanding we are going to break the cost function into 2 parts
+%In the first part(fp) we will compute -ylog(h)
+%In the second part(sp) we will compute (1-y)log(1-h)
+fp = y' * log(h);
+sp = (1-y') * log(1-h)
+reg = (lambda/(2*m))*(theta_reg'*theta_reg);
+J = -((1/m)*(fp+sp))+reg
 
-
-
-
-
-
-% =============================================================
+%So, now we have calculated the cost function J(theta) (J), next we need to calculate the partial derivative of J(theta) (J_Part)
+grad =(1/m)*(X'*(h-y));
 
 end
