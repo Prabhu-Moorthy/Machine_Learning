@@ -11,7 +11,7 @@ h = sigmoid(X*theta);
 %In the first part(fp) we will compute -ylog(h)
 %In the second part(sp) we will compute (1-y)log(1-h)
 fp = -y' * log(h);
-sp = (1-y') * log(1-h)
+sp = (1-y') * log(1-h);
 J = (1/m)*(fp-sp);
 
 %So, now we have calculated the cost function J(theta) (J), next we need to calculate the partial derivative of J(theta) (J_Part)
