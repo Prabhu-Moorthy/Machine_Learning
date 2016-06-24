@@ -67,3 +67,21 @@ pred = predictOneVsAll(all_theta, X);
 
 fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
 
+%  To give you an idea of the network's output, you can also run
+%  through the examples one at the a time to see what it is predicting.
+
+%  Randomly permute examples
+rp = randperm(m);
+
+for i = 1:m
+    % Display 
+    fprintf('\nDisplaying Example Image\n');
+    displayData(X(rp(i), :));
+
+    pred = predictOneVsAll(all_theta, X(rp(i),:));
+    fprintf('\nOneVsAll Classification Prediction: %d (digit %d)\n', pred, mod(pred, 10));
+    
+    % Pause
+    fprintf('Program paused. Press enter to continue.\n');
+    pause;
+end
